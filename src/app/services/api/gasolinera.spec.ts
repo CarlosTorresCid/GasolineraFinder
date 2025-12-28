@@ -1,16 +1,10 @@
 import { TestBed } from '@angular/core/testing';
+import { Geolocation } from './geolocation';
 
-import { Gasolinera } from './gasolinera';
-
-describe('Gasolinera', () => {
-  let service: Gasolinera;
-
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(Gasolinera);
-  });
-
+describe('Geolocation', () => {
   it('should be created', () => {
+    const service = TestBed.inject(Geolocation);
     expect(service).toBeTruthy();
   });
 });
+

@@ -2,7 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { Filter, FuelType, BrandMode } from '../../models/filter';
+import { Filtros, TipoCombustible, OrdenarPor } from '../../models/filter';
 
 @Component({
   selector: 'app-filters',
@@ -12,29 +12,30 @@ import { Filter, FuelType, BrandMode } from '../../models/filter';
   styleUrl: './filters.scss',
 })
 export class Filters {
-  @Output() filterChange = new EventEmitter<Filter>();
+  @Output() filterChange = new EventEmitter<Filtros>();
 
-  // Valores UI
-  fuel: FuelType = 'Gasolina 95 E5';
-  radiusKm = 10;
+  tipoCombustible: TipoCombustible = 'todos';
+  distanciaMaxima = 5;
+  precioMaximo = 0;
 
-  brandMode: BrandMode = 'all';
-  brandsText = ''; // marcas separadas por coma
+  soloAbiertas = false;
+  ordenarPor: OrdenarPor = 'precio';
 
-  sortBy: 'distance' | 'price' = 'distance';
+  empresasText = '';
 
   emitFilters(): void {
-    const brands = this.brandsText
+    const empresas = this.empresasText
       .split(',')
-      .map((b) => b.trim())
-      .filter((b) => b.length > 0);
+      .map((e) => e.trim())
+      .filter((e) => e.length > 0);
 
     this.filterChange.emit({
-      fuel: this.fuel,
-      radiusKm: Number(this.radiusKm) || 0,
-      brandMode: this.brandMode,
-      brands,
-      sortBy: this.sortBy,
+      tipoCombustible: this.tipoCombustible,
+      distanciaMaxima: Number(this.distanciaMaxima) || 0,
+      precioMaximo: Number(this.precioMaximo) || 0,
+      soloAbiertas: this.soloAbiertas,
+      ordenarPor: this.ordenarPor,
+      empresas,
     });
   }
 }

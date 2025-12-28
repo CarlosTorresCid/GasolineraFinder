@@ -10,14 +10,24 @@
       <strong>Más cercana:</strong>
       {{ nearest.rotulo }} — {{ nearest.municipio }} —
       {{ nearest.distanceKm?.toFixed(2) }} km —
-      {{ filters.fuel }}: {{ nearest.prices[filters.fuel] }} €
+      <ng-container *ngIf="selectedFuelLabel as fuel; else noFuelSelected">
+        {{ fuel }}: {{ nearest.precios?.[fuel] }} €
+      </ng-container>
+      <ng-template #noFuelSelected>
+        (selecciona un combustible)
+      </ng-template>
     </div>
 
     <div class="item" *ngIf="cheapestInRadius">
       <strong>Más barata (en el radio):</strong>
       {{ cheapestInRadius.rotulo }} — {{ cheapestInRadius.municipio }} —
       {{ cheapestInRadius.distanceKm?.toFixed(2) }} km —
-      {{ filters.fuel }}: {{ cheapestInRadius.prices[filters.fuel] }} €
+      <ng-container *ngIf="selectedFuelLabel as fuel; else noFuelSelected2">
+        {{ fuel }}: {{ cheapestInRadius.precios?.[fuel] }} €
+      </ng-container>
+      <ng-template #noFuelSelected2>
+        (selecciona un combustible)
+      </ng-template>
     </div>
   </div>
 </div>

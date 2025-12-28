@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { Geolocation } from './geolocation';
+import { GeolocationService } from './geolocation';
 
 describe('Geolocation', () => {
   it('should be created', () => {

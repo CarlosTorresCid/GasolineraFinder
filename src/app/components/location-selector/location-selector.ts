@@ -2,8 +2,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { Location } from '../../models/location';
-import { Geolocation } from '../../services/geolocation';
+import { Ubicacion } from '../../models/location';
+import { GeolocationService } from '../../services/geolocation';
 
 @Component({
   selector: 'app-location-selector',
@@ -13,7 +13,7 @@ import { Geolocation } from '../../services/geolocation';
   styleUrl: './location-selector.scss',
 })
 export class LocationSelector {
-  @Output() locationChange = new EventEmitter<Location>();
+  @Output() locationChange = new EventEmitter<Ubicacion>();
 
   latText = '';
   lonText = '';
@@ -21,7 +21,7 @@ export class LocationSelector {
   errorMsg: string | null = null;
   loading = false;
 
-  constructor(private geo: Geolocation) {}
+  constructor(private geo: GeolocationService) {}
 
   emitManualLocation(): void {
     this.errorMsg = null;
@@ -38,7 +38,11 @@ export class LocationSelector {
       return;
     }
 
-    this.locationChange.emit({ lat, lon });
+    this.locationChange.emit({
+      latitud: lat,
+      longitud: lon,
+      ciudad: 'Ubicación manual',
+    });
   }
 
   async useMyLocation(): Promise<void> {
@@ -47,8 +51,8 @@ export class LocationSelector {
 
     try {
       const loc = await this.geo.getCurrentLocation();
-      this.latText = String(loc.lat);
-      this.lonText = String(loc.lon);
+      this.latText = String(loc.latitud);
+      this.lonText = String(loc.longitud);
       this.locationChange.emit(loc);
     } catch (e: any) {
       this.errorMsg = e?.message ?? 'Error obteniendo ubicación.';
