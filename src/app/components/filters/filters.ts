@@ -2,7 +2,7 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Filters, FuelType } from '../../models/filter';  // ← Importar desde models
+import { Filters, FuelType } from '../../models/filter';  
 
 @Component({
   selector: 'app-filters',
