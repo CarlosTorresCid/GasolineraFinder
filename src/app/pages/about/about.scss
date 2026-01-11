@@ -1,0 +1,155 @@
+/* Sección "Sobre GasolineraFinder" */
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white; /* Cambiar todo el texto a blanco */
+}
+
+/* Estilos para los títulos */
+.about-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid #e0e0e0;
+
+  h1 {
+    font-size: 2.8rem;
+    color: var(--accent-orange);  /* Naranja, el color que ya estás usando */
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+    color: #ffffff;  /* Blanco para el subtitulo */
+    font-style: italic;
+  }
+}
+
+/* Card similar a "Inicio / Filtros" */
+.about-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.about-card {
+  background: rgba(22, 22, 22, 0.55); /* Fondo translúcido para el mismo look */
+  border-radius: var(--radius-lg);
+  padding: 1.8rem;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 148, 77, 0.16);
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    color: var(--accent-orange);  /* Título en naranja */
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  p {
+    color: #ffffff;  /* Blanco para los párrafos */
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+
+    li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: #ffffff; /* Blanco en los items de lista */
+
+      &::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--accent-orange); /* Color naranja en los iconos */
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+/* Información de contacto */
+.contact-link {
+  color: var(--accent-orange);
+  text-decoration: none;
+  font-weight: 600;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.contact-info {
+  color: #ffffff !important;  /* Blanco para el contacto */
+  font-weight: 500;
+  margin: 0.3rem 0 !important;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.back-button {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid #e0e0e0;
+
+  .btn-back {
+    background: var(--accent-orange);
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+
+    &:hover {
+      background: #2980b9;
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-container {
+    padding: 1rem;
+  }
+
+  .about-header {
+    h1 {
+      font-size: 2rem;
+    }
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+}

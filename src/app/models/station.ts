@@ -16,7 +16,13 @@ export type CandidateRouteInfo = {
 export interface Gasolinera {
   id: string;
   rotulo: string;
+  
+  // Dirección
   direccion: string;
+  direccionCompleta?: string;  // Añadido
+  calle?: string;              // Añadido
+  numero?: string;             // Añadido
+
   municipio: string;
   provincia: string;
   codigoPostal: string;
@@ -50,6 +56,8 @@ export interface Gasolinera {
   precioDieselPremium: number;
   precioGLP: number;
 }
+
+
 
 // Extensiones opcionales para modo ruta
 export interface GasolineraRuta extends Gasolinera {

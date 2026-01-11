@@ -8,8 +8,101 @@
   padding: 30px 20px;
   min-height: 100vh;
   background: var(--bg-primary);
-  padding-top: 140px; /* header fijo */
+  padding-top: 20px; 
 }
+
+/* =========================================================
+  Datos de perfil
+========================================================= */
+
+
+
+/* =========================================================
+   CARD PERFIL (mismo look que acordeones)
+========================================================= */
+
+.perfil-card {
+  margin: 18px 0 22px;
+  padding: 22px 22px;
+
+  background: var(--bg-card); 
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+/* Layout interno */
+.perfil-container {
+  display: grid;
+  grid-template-columns: 1fr 520px;
+  gap: 28px;
+  align-items: center;
+}
+
+/* Texto */
+.datos-perfil {
+  font-size: 18px;
+}
+
+.datos-perfil h2 {
+  margin: 0 0 14px;
+  color: var(--accent-orange);
+  font-weight: 900;
+}
+
+/* separación entre líneas */
+.datos-perfil p {
+  margin: 0 0 10px;
+  line-height: 1.6;
+}
+
+/* Etiqueta en negrita */
+.datos-perfil strong {
+  color: var(--text-primary);
+  font-weight: 800;
+}
+
+/* Valor SIN negrita (lo que quieres) */
+.datos-perfil span {
+  color: var(--text-primary);
+  font-weight: 400; 
+  opacity: 0.95;    
+}
+
+/* Video */
+.gif-coche {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.gif-coche video {
+  width: min(520px, 100%);
+  height: auto;
+  background: transparent;
+  border-radius: 16px;
+  pointer-events: none;
+  filter: drop-shadow(0 14px 38px rgba(0, 0, 0, 0.35));
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .perfil-container {
+    grid-template-columns: 1fr;
+  }
+  .gif-coche {
+    justify-content: center;
+  }
+}
+
+
+
+
+
+
+
 
 /* =========================================================
    TOP BAR (logo izquierda + links derecha) - FIXED
